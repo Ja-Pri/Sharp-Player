@@ -153,6 +153,16 @@ namespace Sharp_Player
             GetArtists();
         }
 
+        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Clear ListViews.
+            artistPaths.Clear();
+            albumPaths.Clear();
+            songPaths.Clear();
+
+            GetArtists();
+        }
+
         //Plays the previous song.
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
@@ -463,7 +473,7 @@ namespace Sharp_Player
                 //Add the Albums and thier art to the list.
                 if (albumArt.Length > 0)
                 {
-                    albumNames.Add(new LoadFiles { Title = alb.Name, ImageData = new BitmapImage(new Uri(albumArt[0].FullName)) });
+                    albumNames.Add(new LoadFiles { Title = alb.Name, ImageData = new BitmapImage(new Uri(albumArt.Last().FullName)) });
                     albumPaths.Add(alb.FullName.ToString());
                 }
 
@@ -501,7 +511,7 @@ namespace Sharp_Player
 
             //Updates the player with the current artist/album/song information.
             PlayerArtist.Text = artist.Name;
-            PlayerAlbum.ImageSource = new BitmapImage(new Uri(albumArt[0].FullName));
+            PlayerAlbum.ImageSource = new BitmapImage(new Uri(albumArt.Last().FullName));
             PlayerSong.Text = file.Name;
         }
     }
