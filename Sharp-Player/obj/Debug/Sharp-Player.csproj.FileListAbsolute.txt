@@ -20,3 +20,7 @@ C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\Sharp-Player
 C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\Sharp-Player.csproj.CopyComplete
 C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\Sharp-Player.exe
 C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\Sharp-Player.pdb
+C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\MainPage.g.cs
+C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\MainPage.baml
+C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\SettingsPage.g.cs
+C:\Users\Jacob.000\source\repos\Sharp-Player\Sharp-Player\obj\Debug\SettingsPage.baml

@@ -1,0 +1,102 @@
+﻿<Page x:Class="Sharp_Player.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sharp_Player"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="SettingsPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <!--Sets the color gradient for the buttons-->
+            <LinearGradientBrush x:Key="Button Gradient" StartPoint="0.5,0" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox">
+                <GradientStop Color="#F0D06B"/>
+                <GradientStop Color="#D95A40" Offset="0.6"/>
+                <GradientStop Color="#BF2742" Offset=".9"/>
+            </LinearGradientBrush>
+
+            <SolidColorBrush x:Key="txtColor" Color="#577C80"/>
+
+            <!--The tooltip colors-->
+            <Style TargetType="ToolTip" BasedOn="{StaticResource {x:Type ToolTip}}">
+                <Setter Property="Foreground" Value="#D95A40" />
+                <Setter Property="Background" Value="#501E31" />
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="settingsButton" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="20" Height="20" Margin="10,5" ToolTip="Back to Player" Click="returnButton_Click" VerticalAlignment="Top">
+            <materialDesign:PackIcon Kind="ArrowBackCircle" VerticalAlignment="Center" Width="18" Height="18">
+                <materialDesign:PackIcon.Foreground>
+                    <DynamicResource ResourceKey="Button Gradient"/>
+                </materialDesign:PackIcon.Foreground>
+            </materialDesign:PackIcon>
+        </Button>
+        <Grid VerticalAlignment="Top" Grid.Column="1" Grid.Row="1">
+            <ListView Foreground="{StaticResource txtColor}" Height="30" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListViewItem Height="30" VerticalAlignment="Top">
+                    <TextBlock Text="Directories: " VerticalAlignment="Center" Width="auto" TextTrimming="CharacterEllipsis"/>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+        <Grid VerticalAlignment="Top" Grid.Column="0" Grid.Row="2">
+            <Button x:Name="removeDirButton" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="20" Height="20" Margin="10,5" ToolTip="Add a Directory" Click="dirButton_Click" VerticalAlignment="Top">
+                <materialDesign:PackIcon Kind="MinusCircle" VerticalAlignment="Center" Width="18" Height="18">
+                    <materialDesign:PackIcon.Foreground>
+                        <DynamicResource ResourceKey="Button Gradient"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+            </Button>
+        </Grid>
+        <Grid VerticalAlignment="Top" Grid.Column="1" Grid.Row="2">
+            <ListView x:Name="DirectoriesBox" Foreground="{StaticResource txtColor}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListViewItem VerticalAlignment="center">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Height="auto">
+                        <TextBlock Text="" VerticalAlignment="Center" Height="30" Width="auto" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+        <Grid VerticalAlignment="Top" Grid.Column="0" Grid.Row="3">
+            <Button x:Name="addDirButton" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="20" Height="20" Margin="10,5" ToolTip="Add a Directory" Click="dirButton_Click" VerticalAlignment="Top">
+                <materialDesign:PackIcon Kind="PlusCircle" VerticalAlignment="Center" Width="18" Height="18">
+                    <materialDesign:PackIcon.Foreground>
+                        <DynamicResource ResourceKey="Button Gradient"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+            </Button>
+        </Grid>
+        <Grid VerticalAlignment="Top" Grid.Column="1" Grid.Row="3">
+            <ListView Foreground="{StaticResource txtColor}" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="30">
+                <ListViewItem Height="30" VerticalAlignment="Top">
+                    <TextBlock Text="Directory to Add (needs to be a form)" VerticalAlignment="Center" Width="auto" TextTrimming="CharacterEllipsis"/>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
